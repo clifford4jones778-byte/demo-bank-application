@@ -1,0 +1,394 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+/* Splash Screen */
+
+.splash{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0d6efd,#1aa7ff);
+}
+
+.logoCircle{
+    width:120px;
+    height:120px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    color:#0d6efd;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.splash h1{
+    color:#fff;
+    margin-top:25px;
+    font-size:34px;
+    font-weight:700;
+}
+
+.splash p{
+    color:#eef6ff;
+    margin-top:10px;
+    font-size:16px;
+}
+
+.loader{
+    margin-top:45px;
+    width:220px;
+    height:8px;
+    background:rgba(255,255,255,.25);
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.loader span{
+    display:block;
+    width:40%;
+    height:100%;
+    background:#fff;
+    border-radius:50px;
+    animation:loading 1.4s infinite ease-in-out;
+}
+
+/* Buttons */
+
+.btn{
+    width:100%;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    border-radius:14px;
+    background:#0d6efd;
+    color:#fff;
+    padding:16px;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0058d6;
+}
+
+/* Cards */
+
+.card{
+    background:#fff;
+    border-radius:22px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Inputs */
+
+input{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    margin-bottom:18px;
+    border:1px solid #d9e2ef;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#0d6efd;
+}
+
+/* Utility */
+
+.center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.hidden{
+    display:none;
+}
+
+.mt-10{margin-top:10px;}
+.mt-20{margin-top:20px;}
+.mt-30{margin-top:30px;}
+.mt-40{margin-top:40px;}
+
+.mb-10{margin-bottom:10px;}
+.mb-20{margin-bottom:20px;}
+.mb-30{margin-bottom:30px;}
+
+@keyframes loading{
+    0%{
+        transform:translateX(-100%);
+    }
+    100%{
+        transform:translateX(350%);
+    }
+}
+
+/* Message Modal */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal.hidden{
+    display:none;
+}
+
+.modal-box{
+    width:90%;
+    max-width:360px;
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    animation:pop .25s ease;
+}
+
+.modal-box h2{
+    margin-bottom:12px;
+    color:#0d6efd;
+}
+
+.modal-box p{
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+.avatarLarge{
+
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+
+}
+
+.avatarLarge img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+#avatarIcon{
+
+    font-size:50px;
+
+}
+/* ==========================
+   PIN PAGE
+========================== */
+
+.pin-container{
+    width:100%;
+    max-width:360px;
+    margin:25px auto 0;
+    text-align:center;
+}
+
+.pin-dots{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.pin-dots .dot{
+    width:18px;
+    height:18px;
+    border:2px solid #ccc;
+    border-radius:50%;
+    background:#fff;
+    transition:.3s;
+}
+
+.pin-dots .dot.active{
+    background:#007bff;
+    border-color:#007bff;
+}
+
+#pin{
+    display:none;
+}
+
+.pin-pad{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.pin-pad button{
+    width:85px;
+    height:85px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    color:#222;
+    font-size:28px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.2s;
+}
+
+.pin-pad button:hover{
+    background:#f5f5f5;
+    transform:scale(1.05);
+}
+
+.pin-pad button:active{
+    transform:scale(.95);
+}
+
+.pin-pad .btn{
+    background:#007bff;
+    color:#fff;
+}
+
+.pin-pad .btn:hover{
+    background:#0056b3;
+}
+
+#clear{
+    background:#dc3545;
+    color:#fff;
+}
+
+#clear:hover{
+    background:#b52a37;
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+    .pin-pad button{
+        width:72px;
+        height:72px;
+        font-size:24px;
+    }
+
+    .pin-dots .dot{
+        width:16px;
+        height:16px;
+    }
+
+}
+/* PIN Verification Modal */
+
+.pin-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:9999;
+}
+
+.pin-modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.pin-modal-box{
+    width:90%;
+    max-width:340px;
+    background:#fff;
+    border-radius:18px;
+    padding:30px 25px;
+    text-align:center;
+    animation:pop .25s ease;
+}
+
+.pin-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.pin-icon.success{
+    background:#28a745;
+}
+
+.pin-icon.error{
+    background:#dc3545;
+}
+
+#pinTitle{
+    margin-bottom:10px;
+}
+
+#pinMessage{
+    color:#666;
+    margin-bottom:25px;
+}
+
+#closeModal{
+    width:100%;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}

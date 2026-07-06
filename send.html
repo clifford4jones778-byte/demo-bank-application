@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transfer Money</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Transfer Money</h2>
+
+<p>Demo Transfer</p>
+
+</div>
+
+<a href="dashboard.html"
+class="btn"
+style="width:auto;padding:10px 20px;text-decoration:none;">
+
+Back
+
+</a>
+
+</header>
+
+<section class="card slide-up" style="width:92%;margin:auto;">
+
+<h3>Available Balance</h3>
+
+<h1 id="balance">$2,000,000.00</h1>
+
+<hr style="margin:20px 0;">
+
+<label>Recipient Name</label>
+
+<input
+type="text"
+id="recipient"
+placeholder="Enter recipient name">
+
+<label>Account Number</label>
+
+<input
+type="text"
+id="accountNumber"
+placeholder="Enter account number"
+maxlength="10">
+
+<label>Bank Name</label>
+
+<input
+type="text"
+id="bankName"
+placeholder="Enter bank name">
+
+<label>Amount</label>
+
+<input
+type="number"
+id="transferAmount"
+placeholder="Enter amount">
+
+<button
+class="btn"
+onclick="makeTransfer()">
+
+Transfer Now
+
+</button>
+
+</section>
+
+<script type="module" src="wallet.js"></script>
+
+<script>
+
+updateBalance();
+
+function makeTransfer(){
+
+const recipient =
+document.getElementById("recipient").value;
+
+const account =
+document.getElementById("accountNumber").value;
+
+const bank =
+document.getElementById("bankName").value;
+
+const amount =
+document.getElementById("transferAmount").value;
+
+if(account.trim()===""){
+
+alert("Please enter account number");
+
+return;
+
+}
+
+if(bank.trim()===""){
+
+alert("Please enter bank name");
+
+return;
+
+}
+
+transfer(
+amount,
+recipient + " (" + bank + " - " + account + ")"
+);
+
+document.getElementById("recipient").value="";
+document.getElementById("accountNumber").value="";
+document.getElementById("bankName").value="";
+document.getElementById("transferAmount").value="";
+
+}
+
+</script>
+
+</body>
+
+</html>

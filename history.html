@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transaction History</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Transaction History</h2>
+
+<p>Demo Account</p>
+
+</div>
+
+<a href="dashboard.html"
+class="btn"
+style="width:auto;padding:10px 20px;text-decoration:none;">
+
+Back
+
+</a>
+
+</header>
+
+<section
+class="transactions"
+style="width:92%;margin:auto;">
+
+<div id="historyList">
+
+</div>
+
+</section>
+
+
+
+<script type="module" src="history.js"></script>
+
+<script>
+
+const historyContainer =
+document.getElementById("historyList");
+
+function loadHistory(){
+
+historyContainer.innerHTML="";
+
+const history =
+JSON.parse(
+localStorage.getItem("demoTransactions")
+||"[]"
+);
+
+if(history.length===0){
+
+historyContainer.innerHTML=`
+
+<div class="empty">
+
+No Transaction History
+
+</div>
+
+`;
+
+return;
+
+}
+
+history.forEach(function(item){
+
+historyContainer.innerHTML += `
+
+<div class="transactionItem">
+
+<div>
+
+<h4>${item.type}</h4>
+
+<p>${item.date}</p>
+
+</div>
+
+<div class="amount ${item.amount>=0?'credit':'debit'}">
+
+${item.amount>=0?'+':'-'}
+
+${formatMoney(Math.abs(item.amount))}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadHistory();
+
+setTimeout(function(){
+
+document
+.getElementById("demoModal")
+.classList
+.remove("hidden");
+
+},500);
+
+</script>
+
+</body>
+
+</html>

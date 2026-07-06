@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Statistics</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+<style>
+
+.container{
+    width:92%;
+    margin:20px auto 100px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.statCard{
+    background:#fff;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.statCard h4{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.statCard h2{
+    color:#0d6efd;
+}
+
+.summary{
+    margin-top:20px;
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.summary h3{
+    margin-bottom:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0;
+}
+
+.progress{
+    width:100%;
+    height:18px;
+    background:#e8eef8;
+    border-radius:50px;
+    overflow:hidden;
+    margin-top:25px;
+}
+
+.progressFill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#0d6efd,#59b2ff);
+    transition:.6s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Statistics</h2>
+
+<p>Demo Analytics</p>
+
+</div>
+
+<a href="dashboard.html"
+class="btn"
+style="width:auto;padding:10px 20px;text-decoration:none;">
+
+Back
+
+</a>
+
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="statCard">
+
+<h4>Current Balance</h4>
+
+<h2 id="balanceCard">$0.00</h2>
+
+</div>
+
+<div class="statCard">
+
+<h4>Total Deposits</h4>
+
+<h2 id="depositTotal">$0.00</h2>
+
+</div>
+
+<div class="statCard">
+
+<h4>Total Withdrawals</h4>
+
+<h2 id="withdrawTotal">$0.00</h2>
+
+</div>
+
+<div class="statCard">
+
+<h4>Total Transfers</h4>
+
+<h2 id="transferTotal">$0.00</h2>
+
+</div>
+
+</div>
+
+<div class="summary">
+
+<h3>Account Summary</h3>
+
+<div class="row">
+
+<span>Total Transactions</span>
+
+<strong id="transactionCount">0</strong>
+
+</div>
+
+<div class="row">
+
+<span>Account Status</span>
+
+<strong style="color:green;">ACTIVE</strong>
+
+</div>
+
+<div class="row">
+
+<span>Application</span>
+
+<strong>Demo Mode</strong>
+
+</div>
+
+<div class="progress">
+
+<div class="progressFill" id="progressFill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="wallet.js"></script>
+
+<script type="module">
+
+import {
+    auth,
+    db,
+    ref,
+    get
+} from "./js/firebase.js";
+
+function formatMoney(amount){
+
+    return "$" + Number(amount).toLocaleString("en-US",{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    });
+
+}
+
+auth.onAuthStateChanged(async(user)=>{
+
+    if(!user){
+
+        location.href="login.html";
+        return;
+
+    }
+
+    const uid=user.uid;
+
+    /* Load User */
+
+    const userSnap=await get(
+        ref(db,"users/"+uid)
+    );
+
+    if(userSnap.exists()){
+
+        const data=userSnap.val();
+
+        document.getElementById("balanceCard").textContent=
+        formatMoney(data.balance||0);
+
+    }
+
+    /* Load Transactions */
+
+    const txSnap=await get(
+        ref(db,"transactions/"+uid)
+    );
+
+    let deposits=0;
+    let withdrawals=0;
+    let transfers=0;
+    let count=0;
+
+    if(txSnap.exists()){
+
+        const transactions=Object.values(txSnap.val());
+
+        count=transactions.length;
+
+        transactions.forEach(tx=>{
+
+            if(tx.type==="Deposit"){
+
+                deposits+=Number(tx.amount);
+
+            }
+
+            else if(tx.type==="Withdrawal"){
+
+                withdrawals+=Math.abs(Number(tx.amount));
+
+            }
+
+            else if(tx.type==="Transfer"){
+
+                transfers+=Math.abs(Number(tx.amount));
+
+            }
+
+        });
+
+    }
+
+    document.getElementById("depositTotal").textContent=
+    formatMoney(deposits);
+
+    document.getElementById("withdrawTotal").textContent=
+    formatMoney(withdrawals);
+
+    document.getElementById("transferTotal").textContent=
+    formatMoney(transfers);
+
+    document.getElementById("transactionCount").textContent=
+    count;
+
+    document.getElementById("progressFill").style.width=
+    Math.min(count*10,100)+"%";
+
+});
+
+</script>
+
+</body>
+
+</html>

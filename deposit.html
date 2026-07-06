@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deposit Money</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Deposit</h2>
+
+<p>Add funds (Demo)</p>
+
+</div>
+
+<a href="dashboard.html" class="btn" style="width:auto;padding:10px 20px;text-decoration:none;">
+Back
+</a>
+
+</header>
+
+<section class="card slide-up" style="width:92%;margin:auto;">
+
+<h3>Current Balance</h3>
+
+<h1 id="balance">$2,000,000.00</h1>
+
+<hr style="margin:20px 0;">
+
+<label>Deposit Amount</label>
+
+<input
+type="number"
+id="depositAmount"
+placeholder="Enter amount">
+
+<button
+class="btn"
+onclick="deposit(document.getElementById('depositAmount').value)">
+    Deposit Now
+</button>
+
+</section>
+<div id="messageModal" class="modal hidden">
+    <div class="modal-box">
+        <h2 id="modalTitle">Success</h2>
+        <p id="modalMessage"></p>
+
+        <button class="btn" onclick="closeMessageModal()">
+            Close
+        </button>
+    </div>
+</div>
+<script type="module" src="wallet.js"></script>
+
+</body>
+
+</html>

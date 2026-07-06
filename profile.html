@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+<style>
+
+.profileContainer{
+    width:92%;
+    margin:20px auto 100px;
+}
+
+.profileCard{
+    background:#fff;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.avatarLarge{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    margin:auto;
+    background:linear-gradient(135deg,#0d6efd,#5ab2ff);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:50px;
+}
+
+.profileCard h2{
+    margin-top:20px;
+}
+
+.profileCard p{
+    color:#777;
+    margin-top:8px;
+}
+
+.menu{
+    margin-top:30px;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    padding:18px 20px;
+    margin-bottom:15px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.left span{
+    font-size:26px;
+}
+
+.logoutBtn{
+    margin-top:30px;
+}
+
+.version{
+    text-align:center;
+    margin-top:30px;
+    color:#888;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Profile</h2>
+
+<p>Demo Banking</p>
+
+</div>
+
+<a href="dashboard.html"
+class="btn"
+style="width:auto;padding:10px 20px;text-decoration:none;">
+
+Back
+
+</a>
+
+</header>
+
+<div class="profileContainer">
+
+<div class="profileCard">
+
+<div class="avatarLarge" id="avatarContainer">
+
+    <img
+        id="profilePhoto"
+        src=""
+        style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:none;">
+
+    <span id="avatarIcon">👤</span>
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+style="display:none;">
+
+
+</div>
+
+<h2 id="profileName">Loading...</h2>
+
+<p id="profileEmail">Loading...</p>
+
+<p>Account No: <span id="profileAccountNumber">Loading...</span></p>
+
+</div>
+
+<div class="menu">
+
+<div class="item">
+
+<div class="left">
+
+<span>👤</span>
+
+<div>
+
+<strong>Personal Information</strong><br>
+
+<small>View Account Details</small>
+
+</div>
+
+</div>
+
+<span>›</span>
+
+</div>
+
+<div class="item">
+
+<div class="left">
+
+<span>🔒</span>
+
+<div>
+
+<strong>Security</strong><br>
+
+<small>Password & PIN</small>
+
+</div>
+
+</div>
+
+<span>›</span>
+
+</div>
+
+<div class="item">
+
+<div class="left">
+
+<span>✅</span>
+
+<div>
+
+<strong>KYC Status</strong><br>
+
+<small>Verified (Demo)</small>
+
+</div>
+
+</div>
+
+<span>✔</span>
+
+</div>
+
+<div class="item">
+
+<div class="left">
+
+<span>🌙</span>
+
+<div>
+
+<strong>Appearance</strong><br>
+
+<small>Light Mode</small>
+
+</div>
+
+</div>
+
+<span>›</span>
+
+</div>
+
+<div class="item">
+
+<div class="left">
+
+<span>📞</span>
+
+<div>
+
+<strong>Support</strong><br>
+
+<small>24/7 Customer Care</small>
+
+</div>
+
+</div>
+
+<span>›</span>
+
+</div>
+
+<div class="item">
+
+<div class="left">
+
+<span>ℹ️</span>
+
+<div>
+
+<strong>About</strong><br>
+
+<small>Demo Banking App v1.0</small>
+
+</div>
+
+</div>
+
+<span>›</span>
+
+</div>
+
+<div class="logoutBtn">
+
+<button class="btn" onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+<div class="version">
+
+Version 1.0.0 (Demo)
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="auth.js"></script>
+
+</body>
+
+</html>

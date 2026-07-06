@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PIN Verification</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+
+<div class="login-page fade-in">
+
+    <div class="login-card">
+
+        <div class="logo pulse">
+            🔐
+        </div>
+
+        <h1>PIN Verification</h1>
+
+        <p>Enter your 4-digit security PIN</p>
+
+        <div class="pin-container">
+
+    <div class="pin-dots">
+        <span class="dot" id="d1"></span>
+        <span class="dot" id="d2"></span>
+        <span class="dot" id="d3"></span>
+        <span class="dot" id="d4"></span>
+    </div>
+
+    <input
+        type="hidden"
+        id="pin"
+        maxlength="4"
+    >
+
+    <div class="pin-pad">
+
+        <button type="button" class="num">1</button>
+        <button type="button" class="num">2</button>
+        <button type="button" class="num">3</button>
+
+        <button type="button" class="num">4</button>
+        <button type="button" class="num">5</button>
+        <button type="button" class="num">6</button>
+
+        <button type="button" class="num">7</button>
+        <button type="button" class="num">8</button>
+        <button type="button" class="num">9</button>
+
+        <button type="button" id="clear">⌫</button>
+        <button type="button" class="num">0</button>
+       
+
+    </div>
+
+</div>
+
+       
+
+    </div>
+
+</div>
+
+<!-- PIN Status Modal -->
+<div id="pinModal" class="pin-modal">
+    <div class="pin-modal-box">
+
+        <div id="pinIcon" class="pin-icon">
+            ✓
+        </div>
+
+        <h2 id="pinTitle">PIN Verification</h2>
+
+        <p id="pinMessage"></p>
+
+        <button id="closeModal" class="btn">
+            Continue
+        </button>
+
+    </div>
+</div>
+<script type="module" src="auth.js"></script>
+
+</body>
+
+</html>

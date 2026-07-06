@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Demo Bank</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href=animation.css">
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h3>Welcome Back</h3>
+
+<p id="welcomeUser">Loading...</p>
+
+</div>
+
+<div class="avatar">
+👤
+</div>
+
+</header>
+
+<section class="balanceCard fade-in">
+
+<div class="cardTop">
+
+<span>Total Balance</span>
+
+<button id="toggleBalance">👁</button>
+
+</div>
+
+<h1 id="balance">$2,000,000.00</h1>
+
+<div class="cardInfo">
+
+<div>
+
+<small>Card Holder</small>
+
+<h3 id="cardHolder">Loading...</h3>
+
+</div>
+
+<div>
+
+<small>Card Number</small>
+
+<h3>**** **** **** 4587</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="quickActions">
+
+<a href="deposit.html" class="actionCard">
+
+<div class="icon">💰</div>
+
+<span>Deposit</span>
+
+</a>
+
+<a href="withdraw.html" class="actionCard">
+
+<div class="icon">🏧</div>
+
+<span>Withdraw</span>
+
+</a>
+
+<a href="send.html" class="actionCard">
+
+<div class="icon">📤</div>
+
+<span>Transfer</span>
+
+</a>
+
+<a href="cards.html" class="actionCard">
+
+<div class="icon">💳</div>
+
+<span>Cards</span>
+
+</a>
+
+</section>
+
+<section class="transactions">
+
+<div class="sectionTitle">
+
+<h2>Recent Transactions</h2>
+
+<a href="history.html">View All</a>
+
+</div>
+
+<div id="transactionList">
+
+<div class="empty">
+
+No Transactions Yet
+
+</div>
+
+</div>
+
+</section>
+
+<nav class="bottomNav">
+
+<a href="dashboard.html">
+
+🏠
+
+<p>Home</p>
+
+</a>
+
+<a href="stats.html">
+
+📈
+
+<p>Stats</p>
+
+</a>
+
+<a href="send.html" class="centerButton">
+
+➕
+
+</a>
+
+<a href="cards.html">
+
+💳
+
+<p>Cards</p>
+
+</a>
+
+<a href="profile.html">
+
+👤
+
+<p>Profile</p>
+
+</a>
+
+</nav>
+
+</div>
+
+</div>
+
+<script type="module" src="wallet.js"></script>
+
+</body>
+
+</html>

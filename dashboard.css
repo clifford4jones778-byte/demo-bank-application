@@ -1,0 +1,296 @@
+
+body{
+    background:#f3f7fd;
+    padding-bottom:100px;
+    font-family:Inter,Arial,sans-serif;
+}
+
+/* HEADER */
+
+.topBar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.topBar h3{
+    font-size:24px;
+    color:#222;
+}
+
+.topBar p{
+    color:#777;
+    margin-top:4px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0d6efd,#4ea3ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:24px;
+}
+
+/* BALANCE CARD */
+
+.balanceCard{
+    width:92%;
+    margin:10px auto 25px;
+    padding:25px;
+    border-radius:28px;
+    color:#fff;
+    background:linear-gradient(135deg,#0d6efd,#3d8bfd,#66b3ff);
+    box-shadow:0 20px 45px rgba(13,110,253,.35);
+}
+
+.cardTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cardTop span{
+    font-size:15px;
+    opacity:.9;
+}
+
+.cardTop button{
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.balanceCard h1{
+    margin:18px 0 28px;
+    font-size:36px;
+    font-weight:700;
+}
+
+.cardInfo{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.cardInfo small{
+    display:block;
+    opacity:.8;
+    margin-bottom:6px;
+}
+
+.cardInfo h3{
+    font-size:15px;
+    font-weight:600;
+}
+
+/* ACTIONS */
+
+.quickActions{
+    width:92%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.actionCard{
+    background:#fff;
+    text-decoration:none;
+    color:#222;
+    border-radius:20px;
+    padding:18px 10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.actionCard:hover{
+    transform:translateY(-4px);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#eef5ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.actionCard span{
+    font-size:14px;
+    font-weight:600;
+}
+
+/* TRANSACTIONS */
+
+.transactions{
+    width:92%;
+    margin:30px auto;
+}
+
+.sectionTitle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.sectionTitle h2{
+    font-size:20px;
+}
+
+.sectionTitle a{
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:600;
+}
+
+#transactionList{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.transactionItem{
+    background:#fff;
+    border-radius:18px;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 18px rgba(0,0,0,.06);
+}
+
+.transactionItem h4{
+    margin-bottom:5px;
+}
+
+.transactionItem p{
+    color:#888;
+    font-size:13px;
+}
+
+.amount{
+    font-weight:700;
+}
+
+.credit{
+    color:#28a745;
+}
+
+.debit{
+    color:#dc3545;
+}
+
+.empty{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    color:#888;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottomNav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:75px;
+    background:#fff;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+.bottomNav a{
+    color:#777;
+    text-decoration:none;
+    text-align:center;
+    font-size:13px;
+}
+
+.bottomNav a p{
+    margin-top:5px;
+}
+
+.centerButton{
+    width:65px;
+    height:65px;
+    margin-top:-35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0d6efd,#4da3ff);
+    display:flex !important;
+    justify-content:center;
+    align-items:center;
+    color:#fff !important;
+    font-size:30px;
+    box-shadow:0 12px 25px rgba(13,110,253,.35);
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    width:90%;
+    max-width:360px;
+    background:#fff;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+.modal-content h2{
+    margin-bottom:15px;
+}
+
+.modal-content p{
+    line-height:1.7;
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.quickActions{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.balanceCard h1{
+    font-size:30px;
+}
+
+.cardInfo{
+    flex-direction:column;
+    gap:15px;
+}
+
+}

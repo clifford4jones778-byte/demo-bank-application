@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Withdraw Money</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="animation.css">
+
+</head>
+
+<body>
+
+<header class="topBar">
+
+<div>
+
+<h2>Withdraw</h2>
+
+<p>Cash Withdrawal (Demo)</p>
+
+</div>
+
+<a href="dashboard.html"
+class="btn"
+style="width:auto;padding:10px 20px;text-decoration:none;">
+
+Back
+
+</a>
+
+</header>
+
+<section class="card slide-up" style="width:92%;margin:auto;">
+
+<h3>Available Balance</h3>
+
+<h1 id="balance">$2,000,000.00</h1>
+
+<hr style="margin:20px 0;">
+
+<label>Withdrawal Amount</label>
+
+<input
+type="number"
+id="withdrawAmount"
+placeholder="Enter amount">
+
+<button
+class="btn"
+onclick="makeWithdrawal()">
+
+Withdraw
+
+</button>
+
+</section>
+
+<div id="messageModal" class="modal hidden">
+    <div class="modal-box">
+        <h2 id="modalTitle">Success</h2>
+        <p id="modalMessage"></p>
+
+        <button class="btn" onclick="closeMessageModal()">
+            Close
+        </button>
+    </div>
+</div>
+<script type="module" src="wallet.js"></script>
+
+<script>
+
+updateBalance();
+
+function makeWithdrawal(){
+
+const amount =
+document.getElementById("withdrawAmount").value;
+
+withdraw(amount);
+
+document.getElementById("withdrawAmount").value="";
+
+}
+
+</script>
+
+</body>
+
+</html>
