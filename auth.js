@@ -958,17 +958,54 @@ function showPinModal(success, message){
 
 }
 
-function verifyPin(){
+async function verifyPin(){
 
-    const correctPin="1234";
+    const uid = localStorage.getItem("uid");
 
-    if(pin===correctPin){
+    if(!uid){
+        showPinModal(false, "Your login session has expired. Please log in again.");
+        return;
+    }
 
-        showPinModal(true,"PIN verification successful.");
+    try{
 
-    }else{
+        const snapshot = await get(
+            ref(db, "users/" + uid)
+        );
 
-        showPinModal(false,"Incorrect PIN. Please try again.");
+        if(!snapshot.exists()){
+            showPinModal(false, "User account not found.");
+            return;
+        }
+
+        const user = snapshot.val();
+
+        if(user.pin === pin){
+
+            localStorage.setItem("authenticated", "true");
+
+            showPinModal(
+                true,
+                "PIN verification successful."
+            );
+
+        }else{
+
+            showPinModal(
+                false,
+                "Incorrect PIN. Please try again."
+            );
+
+        }
+
+    }catch(error){
+
+        showPinModal(
+            false,
+            "Verification failed. Please try again."
+        );
+
+        console.error(error);
 
     }
 
