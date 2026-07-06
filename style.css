@@ -251,7 +251,13 @@ input:focus{
     border-color:#007bff;
 }
 
-#pin{
+/* Registration page: show the PIN field */
+#registerForm #pin{
+    display:block;
+}
+
+/* PIN verification page: keep its hidden input hidden */
+.pin-container #pin{
     display:none;
 }
 
